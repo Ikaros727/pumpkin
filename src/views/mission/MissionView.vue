@@ -1,5 +1,5 @@
 <template>
-  <IndexTpl title="任务中心">
+  <ViewTpl title="任务中心" :has-tabbar="true">
     <van-row style="padding: 10px;">
       <van-button type="success" @click="openMissionCreatePage">创建任务</van-button>
     </van-row>
@@ -14,14 +14,14 @@
       </template>
     </van-list>
     <van-back-top right="10px" bottom="50px"/>
-  </IndexTpl>
+  </ViewTpl>
 </template>
 
 <script setup lang="ts">
 import {inject, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 import {showDialog} from "vant";
-import IndexTpl from "@/components/IndexTpl.vue";
+import ViewTpl from "@/components/ViewTpl.vue";
 import type {MissionModel} from "@/dao/Mission.ts";
 import {Mission} from "@/dao/model/Mission.ts";
 import MissionCard from "@/components/MissionCard.vue";

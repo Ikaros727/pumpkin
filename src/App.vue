@@ -5,15 +5,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-const appStyle = ref({
-  position: "absolute",
-  left: "0",
-  right: "0",
-  top: "0",
-  bottom: "50px",
-})
 </script>
 
 <style>

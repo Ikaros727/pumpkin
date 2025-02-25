@@ -1,5 +1,5 @@
 <template>
-  <PageTpl title="创建任务">
+  <ViewTpl title="创建任务" :has-back="true">
     <van-form @submit="onMissionCreateSubmit" required="auto">
       <van-cell-group inset>
         <van-field v-model="missionInfo.Name" label="任务名称" placeholder="请输入任务名称"
@@ -71,17 +71,17 @@
         </van-action-bar>
       </div>
     </van-form>
-  </PageTpl>
+  </ViewTpl>
 </template>
 
 <script setup lang="ts">
 import {inject, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 import {useCascaderAreaData} from "@vant/area-data";
-import PageTpl from "../../../components/PageTpl.vue";
 import {showDialog, showConfirmDialog, showNotify} from "vant";
 import {Mission} from "@/dao/model/Mission.js";
 import {MissionModel} from "@/dao/Mission.js";
+import ViewTpl from "@/components/ViewTpl.vue";
 
 const router = useRouter();
 const showCalendar = ref(false);

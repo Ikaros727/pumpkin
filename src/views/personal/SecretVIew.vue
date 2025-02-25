@@ -1,5 +1,5 @@
 <template>
-  <PageTpl title="Paillier 密钥">
+  <ViewTpl title="Paillier 密钥" :has-back="true">
     <template v-if="myPaillier === null" style="padding: 10px;">
       <van-button :loading="loading" size="large" type="success" @click="generateKeyPair">创建密钥</van-button>
     </template>
@@ -20,16 +20,16 @@
 
       <van-divider style="margin: 16px 0 0 0; padding: 0 0 16px 0;"/>
     </template>
-  </PageTpl>
+  </ViewTpl>
 </template>
 
 <script setup lang="ts">
 import {inject, onMounted, ref} from 'vue';
 import {showToast} from 'vant';
-import PageTpl from "@/components/PageTpl.vue";
+import ViewTpl from "@/components/ViewTpl.vue";
 import * as paillier from "paillier-bigint";
-import type {UserPaillierSecretModel} from "@/dao/UserPaillierSecret.ts";
-import {UserPaillierSecret} from "@/dao/model/UserPaillierSecret.ts";
+import type {UserPaillierSecretModel} from "@/dao/UserPaillierSecret.js";
+import {UserPaillierSecret} from "@/dao/model/UserPaillierSecret.js";
 import VanCellExpand from "@/components/VanCellExpand.vue";
 
 const loading = ref(true);

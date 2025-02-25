@@ -1,5 +1,5 @@
 <template>
-  <PageTpl title="任务详情">
+  <ViewTpl title="任务详情" :has-back="true">
     <MissionCard title="基本信息" :mission="mission"/>
     <template v-for="(area) in mission.AreaList">
       <van-cell-group inset>
@@ -18,18 +18,18 @@
         </van-cell-group>
       </van-cell-group>
     </template>
-  </PageTpl>
+  </ViewTpl>
 </template>
 
 <script setup lang="ts">
 import {ref, onMounted, inject} from "vue";
 import {useRouter, useRoute} from "vue-router";
-import PageTpl from "@/components/PageTpl.vue";
-import {Mission} from "@/dao/model/Mission.ts";
+import {Mission} from "@/dao/model/Mission.js";
 import MissionCard from "@/components/MissionCard.vue";
-import {MissionCarData} from "@/dao/model/MissionCarData.ts";
-import {MissionCarDataModel} from "@/dao/MissionCarData.ts";
+import {MissionCarData} from "@/dao/model/MissionCarData.js";
+import {MissionCarDataModel} from "@/dao/MissionCarData.js";
 import VanCellExpand from "@/components/VanCellExpand.vue";
+import ViewTpl from "@/components/ViewTpl.vue";
 
 const router = useRouter();
 const mission = ref<Mission>(new Mission());

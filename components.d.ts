@@ -8,7 +8,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    IndexTpl: typeof import('./src/components/IndexTpl.vue')['default']
     MissionCard: typeof import('./src/components/MissionCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
@@ -21,7 +20,6 @@ declare module 'vue' {
     VanCellExpand: typeof import('./src/components/VanCellExpand.vue')['default']
     VanCellGroup: typeof import('vant/es')['CellGroup']
     VanDivider: typeof import('vant/es')['Divider']
-    VanEmpty: typeof import('vant/es')['Empty']
     VanField: typeof import('vant/es')['Field']
     VanForm: typeof import('vant/es')['Form']
     VanIcon: typeof import('vant/es')['Icon']

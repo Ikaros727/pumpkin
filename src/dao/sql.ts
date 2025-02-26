@@ -1,3 +1,15 @@
+export const SQLCreateDatabaseUser =
+    `CREATE TABLE IF NOT EXISTS User (
+        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        Username TEXT NOT NULL UNIQUE,
+        Nickname TEXT NOT NULL,
+        Password TEXT NOT NULL,
+        Avatar TEXT NOT NULL,
+     );`
+
+export const SQLInsertUser =
+    `INSERT INTO User (Username, Nickname, Password, Avatar) VALUES (?, ?, ?, ?);`
+
 export const SQLCreateDatabaseMission =
     `CREATE TABLE IF NOT EXISTS Mission (
         Id INTEGER PRIMARY KEY AUTOINCREMENT,

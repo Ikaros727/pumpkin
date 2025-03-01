@@ -19,6 +19,7 @@ declare module 'vue' {
     VanCell: typeof import('vant/es')['Cell']
     VanCellExpand: typeof import('./src/components/VanCellExpand.vue')['default']
     VanCellGroup: typeof import('vant/es')['CellGroup']
+    VanCheckbox: typeof import('vant/es')['Checkbox']
     VanDivider: typeof import('vant/es')['Divider']
     VanField: typeof import('vant/es')['Field']
     VanForm: typeof import('vant/es')['Form']

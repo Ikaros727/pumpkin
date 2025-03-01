@@ -9,7 +9,7 @@ import SecretPage from "@/views/personal/SecretView.vue";
 import Settings from "@/views/personal/SettingsView.vue";
 
 const routes = [
-    {path: "/", redirect: "/personal"},
+    {path: "/", redirect: "/auth"},
     {path: "/auth", component: AuthView},
     // 首页
     {path: "/home", component: HomeView},

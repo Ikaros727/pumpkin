@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15" version="26.0.16" pages="2">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15" version="26.0.16" pages="3">
   <diagram id="j5Mcfy8P9OfoPpD5wNub" name="第 1 页">
     <mxGraphModel dx="1813" dy="1933" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -318,6 +318,119 @@
         </mxCell>
         <mxCell id="T0bgdlEEmyhCB8_LwRMo-47" value="数据加密" style="rounded=0;whiteSpace=wrap;html=1;textDirection=vertical-lr;fontFamily=宋体;fontSize=18;strokeWidth=2;" vertex="1" parent="1">
           <mxGeometry x="682" y="215" width="40" height="170" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="UwWsClsUZG3F2SZ3DzEz" name="第 3 页">
+    <mxGraphModel dx="1197" dy="927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="880" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-2" value="RDS云数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-3" value="应用层" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=宋体;fontSize=18;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-4" value="服务层" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=宋体;fontSize=18;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-5" value="基础设施" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=宋体;fontSize=18;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="360" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-6" value="数据层" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=宋体;fontSize=18;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-7" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;fontFamily=宋体;fontSize=16;entryX=1;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="ebNJ-p06OYvk3_oID2wI-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="200" as="sourcePoint" />
+            <mxPoint x="650" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-8" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;fontFamily=宋体;fontSize=16;entryX=1.001;entryY=0.6;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="ebNJ-p06OYvk3_oID2wI-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="279.5" as="sourcePoint" />
+            <mxPoint x="660" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-9" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;fontFamily=宋体;fontSize=16;entryX=1;entryY=0.803;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="ebNJ-p06OYvk3_oID2wI-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="360" as="sourcePoint" />
+            <mxPoint x="660" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-10" value="ECI弹性容器实例" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="380" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-11" value="任务管理模块" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="284" y="140" width="130" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-12" value="车载传感器" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="660" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-13" value="SLB网络" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="240" y="380" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-14" value="SprintBoot" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="430" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-15" value="任务请求者模块" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="440" y="140" width="146" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-16" value="MyBaties" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="570" y="220" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-17" value="车辆模块" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="619" y="140" width="110" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-18" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;fontFamily=宋体;fontSize=16;entryX=1.001;entryY=0.198;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="ebNJ-p06OYvk3_oID2wI-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="40" y="120" as="sourcePoint" />
+            <mxPoint x="660" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-19" value="表现层" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=宋体;fontSize=18;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-20" value="Vue3" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="120" y="60" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-21" value="Vant" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-22" value="Vue Router" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-23" value="Pinia" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="460" y="60" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-24" value="系统配置数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="280" y="300" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-25" value="用户管理数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="440" y="300" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-26" value="任务管理数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="600" y="300" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-27" value="Nginx" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="330" y="220" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-28" value="Paillier Bigint" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="560" y="60" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-29" value="用户管理系统" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="140" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-30" value="Vue AMap" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="740" y="60" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ebNJ-p06OYvk3_oID2wI-31" value="密钥管理模块" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="760" y="140" width="120" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

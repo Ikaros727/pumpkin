@@ -5,10 +5,10 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-20" value="" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="40" y="40" width="700" height="400" as="geometry" />
+          <mxGeometry x="40" y="40" width="880" height="400" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-13" value="RDS云数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="424" y="380" width="120" height="40" as="geometry" />
+          <mxGeometry x="520" y="380" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-15" value="应用层" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="40" y="120" width="80" height="80" as="geometry" />
@@ -41,28 +41,28 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-24" value="ECI弹性容器实例" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="244" y="380" width="160" height="40" as="geometry" />
+          <mxGeometry x="340" y="380" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-27" value="数据采集系统" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="284" y="140" width="120" height="40" as="geometry" />
+          <mxGeometry x="380" y="140" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-28" value="车载传感器" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="564" y="380" width="120" height="40" as="geometry" />
+          <mxGeometry x="660" y="380" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-30" value="SLB网络" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="144" y="380" width="80" height="40" as="geometry" />
+          <mxGeometry x="240" y="380" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-31" value="SprintBoot" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="334" y="220" width="120" height="40" as="geometry" />
+          <mxGeometry x="430" y="220" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-32" value="数据聚合系统" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="424" y="140" width="120" height="40" as="geometry" />
+          <mxGeometry x="520" y="140" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-33" value="MyBaties" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="474" y="220" width="120" height="40" as="geometry" />
+          <mxGeometry x="570" y="220" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-34" value="数据加解密系统" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="564" y="140" width="140" height="40" as="geometry" />
+          <mxGeometry x="660" y="140" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-35" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;fontFamily=宋体;fontSize=16;entryX=1.001;entryY=0.198;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="_YIMEpo5Rv7STCM8DFQf-20" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -86,22 +86,25 @@
           <mxGeometry x="460" y="60" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-41" value="系统配置数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="184" y="300" width="140" height="40" as="geometry" />
+          <mxGeometry x="280" y="300" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-42" value="用户管理数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="344" y="300" width="140" height="40" as="geometry" />
+          <mxGeometry x="440" y="300" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-43" value="任务管理数据库" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="504" y="300" width="140" height="40" as="geometry" />
+          <mxGeometry x="600" y="300" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-44" value="Nginx" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
-          <mxGeometry x="234" y="220" width="80" height="40" as="geometry" />
+          <mxGeometry x="330" y="220" width="80" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_YIMEpo5Rv7STCM8DFQf-45" value="Paillier Bigint" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" parent="1" vertex="1">
           <mxGeometry x="560" y="60" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="EiPGMBfFxReWGA0rVIgz-1" value="用户管理系统" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" vertex="1" parent="1">
-          <mxGeometry x="144" y="140" width="120" height="40" as="geometry" />
+          <mxGeometry x="240" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="EiPGMBfFxReWGA0rVIgz-2" value="Vue AMap" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=宋体;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="740" y="60" width="160" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

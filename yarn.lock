@@ -495,6 +495,11 @@
   dependencies:
     "@turf/helpers" "^6.5.0"
 
+"@types/crypto-js@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.npmmirror.com/@types/crypto-js/-/crypto-js-4.2.2.tgz#771c4a768d94eb5922cc202a3009558204df0cea"
+  integrity sha512-sDOLlVbHhXpAUAL0YHDUUwDZf3iN4Bwi4W6a0W0b+QcAezUbRtH4FVb+9J4h+XFPW7l/gQ9F8qC7P+Ec4k8QVQ==
+
 "@types/emscripten@*":
   version "1.40.0"
   resolved "https://registry.npmmirror.com/@types/emscripten/-/emscripten-1.40.0.tgz#765f0c77080058faafd6b24de8ccebf573c1464c"

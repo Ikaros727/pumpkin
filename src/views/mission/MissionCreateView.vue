@@ -62,14 +62,12 @@
           </template>
         </van-field>
       </van-cell-group>
-      <div style="margin: 16px;">
-        <van-action-bar>
-          <van-button round block type="danger" @click="onMissionCreateCancel">取消</van-button>
-          <van-button round block type="primary" native-type="submit">
-            提交
-          </van-button>
-        </van-action-bar>
-      </div>
+      <van-action-bar fixed placeholder safe-area-inset-bottom>
+        <van-button round block type="danger" @click="onMissionCreateCancel">取消</van-button>
+        <van-button round block type="primary" native-type="submit">
+          提交
+        </van-button>
+      </van-action-bar>
     </van-form>
   </ViewTpl>
 </template>
@@ -191,7 +189,7 @@ function onArrayDelete(array: string[], index: number) {
 .van-form {
   padding: 16px;
   background: #f7f8fa;
-  min-height: 100vh;
+  min-height: calc(100vh - 82px);
 }
 
 /* 表单分组样式 */
@@ -242,8 +240,9 @@ function onArrayDelete(array: string[], index: number) {
 
 /* 删除按钮样式 */
 .van-button--danger {
-  height: 100%;
-  border-radius: 0;
+  --van-button-danger-background: rgba(237,10,36,0.1);
+  --van-button-danger-border-color: transparent;
+  --van-button-danger-color: #ED0A24;
 }
 
 /* 数据类型输入 */

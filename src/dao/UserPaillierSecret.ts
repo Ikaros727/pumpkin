@@ -56,7 +56,6 @@ export class UserPaillierSecretModel {
                 await Store(this.db)
                 resolve(secret);
             } catch (e) {
-                console.log(e);
                 reject(e);
             }
         });

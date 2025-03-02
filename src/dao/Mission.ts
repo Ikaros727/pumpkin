@@ -1,6 +1,6 @@
 import {Database} from "sql.js";
 import {
-    SQLCreateDatabaseMission,
+    SQLCreateDatabaseMission, SQLDeleteMission,
     SQLInsertMission
 } from "./sql.ts";
 import {Mission} from "./model/Mission.ts";
@@ -72,8 +72,20 @@ export class MissionModel {
 
                 const res = this.db.run("SELECT last_insert_rowid()");
                 mission.Id = res[0]?.values[0][0];
-                await Store(this.db)
+                await Store(this.db);
                 resolve(mission);
+            } catch (e) {
+                reject(e);
+            }
+        });
+    }
+
+    Delete(id: number): Promise<void> {
+        return new Promise(async (resolve, reject) => {
+            try {
+                this.db.run(SQLDeleteMission, [id]);
+                await Store(this.db)
+                resolve()
             } catch (e) {
                 reject(e);
             }

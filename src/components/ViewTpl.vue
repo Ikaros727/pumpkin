@@ -2,9 +2,10 @@
 <template>
   <!-- 导航栏 -->
   <slot name="title">
-    <van-nav-bar :title="props.title" :left-arrow="props.hasBack" @click-left="routeBack" fixed placeholder safe-area-inset-top/>
+    <van-nav-bar :title="props.title" :left-arrow="props.hasBack" @click-left="routeBack" fixed placeholder
+                 safe-area-inset-top/>
   </slot>
-  <div class="content-container">
+  <div :class="props.hasTabbar ? 'content-container' : 'content-container__only-nav-bar'">
     <slot></slot>
   </div>
   <!-- 标签栏 -->
@@ -16,21 +17,27 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
+import {useRouter} from "vue-router";
+
 const props = defineProps({
   title: String,
   hasTabbar: Boolean,
-  hasBack: Boolean,
-})
+  hasBack: Boolean
+});
 
-const router = useRouter()
+const router = useRouter();
 const routeBack = () => {
-  !props.hasBack || router.back()
-}
+  !props.hasBack || router.back();
+};
 </script>
 
 <style scoped>
 .content-container {
+  background-color: #F7F8FA;
+  min-height: calc(100vh - 96px);
+}
+
+.content-container__only-nav-bar {
   background-color: #F7F8FA;
   min-height: calc(100vh - 46px);
 }

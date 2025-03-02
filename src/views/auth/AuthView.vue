@@ -1,8 +1,8 @@
 <template>
-  <ViewTpl title="智能网联汽车数据聚合平台" :has-tabbar="false">
+  <ViewTpl title="智能车联数据聚合平台" :has-tabbar="false">
     <div class="auth-container">
       <!-- 表单标题 -->
-      <h2 class="form-title">{{ isLogin ? '用户登录' : '用户注册' }}</h2>
+      <h2 class="form-title">{{ isLogin ? "用户登录" : "用户注册" }}</h2>
 
       <!-- 表单区域 -->
       <van-form @submit="onSubmit" class="auth-form">
@@ -84,7 +84,7 @@
               type="primary"
               native-type="submit"
               :loading="submitting"
-              :text="isLogin ? '立即登录' : '立即注册'"
+              :text="isLogin ? '登录' : '立即注册'"
           />
         </div>
 
@@ -92,11 +92,11 @@
         <div class="toggle-link">
           <template v-if="isLogin">
             <span>没有账号？</span>
-            <a @click="switchToRegister">立即注册</a>
+            <a @click="switchSignType">立即注册</a>
           </template>
           <template v-else>
             <span>已有账号？</span>
-            <a @click="switchToLogin">返回登录</a>
+            <a @click="switchSignType">返回登录</a>
           </template>
         </div>
       </van-form>
@@ -111,73 +111,95 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { showToast } from 'vant'
-import ViewTpl from "@/components/ViewTpl.vue"
+import {ref, onMounted} from "vue";
+import {useRouter} from "vue-router";
+import {showToast} from "vant";
+import ViewTpl from "@/components/ViewTpl.vue";
+import {useUserStore} from "@/stores/user.ts";
+import {User} from "@/dao/model/User.ts";
 
-const isLogin = ref(true)
-const agree = ref(false)
-const submitting = ref(false)
+const isLogin = ref(true);
+const agree = ref(false);
+const submitting = ref(false);
 const form = ref({
-  username: '',
-  nickname: '',
-  password: '',
-  confirmPassword: '',
-  email: '',
-  mobile: ''
-})
+  username: "",
+  nickname: "",
+  password: "",
+  confirmPassword: "",
+  email: "",
+  mobile: ""
+});
+
+const userStore = useUserStore()();
+const router = useRouter()
+
+onMounted(() => {
+
+});
 
 // 切换表单
-const switchToRegister = () => {
-  isLogin.value = false
+const switchSignType = () => {
+  isLogin.value = !isLogin.value;
   form.value = {
     username: form.value.username,  // 保留已填用户名
-    nickname: '',
-    password: '',
-    confirmPassword: '',
-    email: '',
-    mobile: ''
-  }
-}
-
-const switchToLogin = () => {
-  isLogin.value = true
-  form.value = {
-    username: form.value.username,  // 保留已填用户名
-    nickname: '',
-    password: '',
-    confirmPassword: '',
-    email: '',
-    mobile: ''
-  }
-}
+    nickname: form.value.nickname,  // 保留已填昵称
+    password: "",
+    confirmPassword: "",
+    email: form.value.email,        // 保留已填邮箱
+    mobile: form.value.mobile      // 保留已填手机
+  };
+};
 
 // 验证规则（保持原有验证逻辑不变）
 const passwordValidator = (val: string) =>
-    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/.test(val)
+    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,20}$/.test(val);
 
 const confirmValidator = (val: string) =>
-    val === form.value.password
+    val === form.value.password;
 
 const emailValidator = (val: string) =>
-    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(val)
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(val);
 
 const onSubmit = async () => {
   if (!isLogin.value && !agree.value) {
-    showToast('请先同意用户协议')
-    return
+    showToast("请先同意用户协议");
+    return;
   }
-
-  submitting.value = true
-  try {
-    // 模拟API调用
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    const action = isLogin.value ? '登录' : '注册'
-    showToast(`${action}成功`)
-  } finally {
-    submitting.value = false
+  submitting.value = true;
+  if (isLogin.value) {
+    userStore.login(form.value.username, form.value.password)
+        .then(() => {
+          showToast("登录成功");
+          router.push({
+            path: "/home"
+          });
+        })
+        .catch(e => {
+          showToast("登录失败：" + e.message);
+        })
+        .finally(() => {
+          submitting.value = false;
+        });
+  } else {
+    userStore.register(new User({
+      Username: form.value.username,
+      Nickname: form.value.nickname,
+      Email: form.value.email,
+      Mobile: form.value.mobile,
+      Password: form.value.password
+    }))
+        .then(() => {
+          showToast("注册成功");
+          switchSignType()
+        })
+        .catch(e => {
+          showToast("注册失败：" + e.message);
+        })
+        .finally(() => {
+          submitting.value = false;
+        });
   }
-}
+};
 </script>
 
 <style scoped>

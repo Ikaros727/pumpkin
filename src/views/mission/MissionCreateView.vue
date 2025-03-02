@@ -5,7 +5,7 @@
         <van-field v-model="missionInfo.Name" label="任务名称" placeholder="请输入任务名称"
                    :rules="[{ required: true, message: '请输入任务名称' }]"/>
 
-        <van-field v-model="showTimeRange" is-link readonly label="任务时间" placeholder="点击选择任务时间"
+        <van-field class="show-time-range" v-model="showTimeRange" is-link readonly label="任务时间" placeholder="点击选择任务时间"
                    :rules="[{ required: true, message: '请选择任务时间' }]" @click="showCalendar = true"/>
         <van-calendar v-model:show="showCalendar" type="range" @confirm="onMissionDataRangeConfirm"/>
 
@@ -186,5 +186,108 @@ function onArrayDelete(array: string[], index: number) {
 }
 </script>
 
-<style>
+<style scoped>
+/* 表单容器 */
+.van-form {
+  padding: 16px;
+  background: #f7f8fa;
+  min-height: 100vh;
+}
+
+/* 表单分组样式 */
+.van-cell-group--inset {
+  margin: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* 字段标签样式 */
+.van-field__label {
+  color: #323233;
+  font-weight: 500;
+  width: 80px !important;
+}
+
+/* 输入框样式 */
+.van-field__control {
+  min-height: 44px;
+  padding: 8px 0;
+}
+
+/* 时间选择字段 */
+.van-field__control[readonly] {
+  color: #1989fa;
+  cursor: pointer;
+}
+
+/* 区域选择按钮 */
+.van-button--primary {
+  --van-button-primary-background: rgba(25,137,250,0.1);
+  --van-button-primary-border-color: transparent;
+  --van-button-primary-color: #1989fa;
+}
+
+/* 已添加区域/类型列表 */
+.van-swipe-cell {
+  margin: 8px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.van-swipe-cell__wrapper {
+  padding: 0 16px;
+}
+
+/* 删除按钮样式 */
+.van-button--danger {
+  height: 100%;
+  border-radius: 0;
+}
+
+/* 数据类型输入 */
+.van-popover__wrapper {
+  width: 100%;
+}
+
+/* 金额输入框 */
+.van-field__control[type="number"] {
+  font-weight: bold;
+  color: #07c160;
+}
+
+/* 加密开关 */
+.van-switch {
+  --van-switch-on-background: #1989fa;
+}
+
+/* 操作按钮组 */
+.van-action-bar {
+  padding: 0;
+  margin-top: 24px;
+  gap: 12px;
+}
+
+.van-action-bar .van-button {
+  flex: 1;
+  height: 44px;
+  font-size: 16px;
+}
+
+/* 自定义时间显示 */
+.show-time-range {
+  color: #1989fa;
+  font-weight: 500;
+}
+
+/* 地区选择弹窗 */
+.van-popup--bottom {
+  border-radius: 16px 16px 0 0;
+}
+
+.van-cascader {
+  --van-cascader-active-color: #1989fa;
+  --van-cascader-header-height: 48px;
+}
 </style>

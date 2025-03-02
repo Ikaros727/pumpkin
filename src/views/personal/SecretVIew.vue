@@ -28,8 +28,8 @@ import {inject, onMounted, ref} from 'vue';
 import {showToast} from 'vant';
 import ViewTpl from "@/components/ViewTpl.vue";
 import * as paillier from "paillier-bigint";
-import type {UserPaillierSecretModel} from "@/dao/UserPaillierSecret.js";
-import {UserPaillierSecret} from "@/dao/model/UserPaillierSecret.js";
+import type {UserPaillierSecretModel} from "@/dao/UserPaillierSecret.ts";
+import {UserPaillierSecret} from "@/dao/model/UserPaillierSecret.ts";
 import VanCellExpand from "@/components/VanCellExpand.vue";
 
 const loading = ref(true);

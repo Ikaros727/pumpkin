@@ -6,4 +6,5 @@ declare module  '*.vue' {
 }
 
 declare module 'sql.js'
+// declare module '*.ts'
 declare module '*.sql'

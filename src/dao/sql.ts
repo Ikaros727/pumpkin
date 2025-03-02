@@ -3,12 +3,14 @@ export const SQLCreateDatabaseUser =
         Id INTEGER PRIMARY KEY AUTOINCREMENT,
         Username TEXT NOT NULL UNIQUE,
         Nickname TEXT NOT NULL,
+        Email TEXT NOT NULL,
+        Mobile TEXT NOT NULL,
         Password TEXT NOT NULL,
-        Avatar TEXT NOT NULL,
+        Avatar TEXT NOT NULL
      );`
 
 export const SQLInsertUser =
-    `INSERT INTO User (Username, Nickname, Password, Avatar) VALUES (?, ?, ?, ?);`
+    `INSERT INTO User (Username, Nickname, Email, Mobile, Password, Avatar) VALUES (?, ?, ?, ?, ?, ?);`
 
 export const SQLCreateDatabaseMission =
     `CREATE TABLE IF NOT EXISTS Mission (
@@ -26,6 +28,9 @@ export const SQLCreateDatabaseMission =
 export const SQLInsertMission =
     `INSERT INTO Mission (UserId, Name, AreaList, DataTypeList, StartTime, EndTime, IsEncrypted, Reward)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?);`
+
+export const SQLDeleteMission =
+    `DELETE FROM Mission WHERE Id = ?;`
 
 export const SQLCreateDatabaseUserPaillierSecret =
     `CREATE TABLE IF NOT EXISTS UserPaillierSecret (

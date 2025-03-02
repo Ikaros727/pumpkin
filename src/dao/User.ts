@@ -37,7 +37,7 @@ export class UserModel {
                     args.push(filter.Password);
                 }
                 if (wheres.length > 0) {
-                    sql += " WHERE " + wheres.join(" AND " + filter.Username);
+                    sql += " WHERE " + wheres.join(" AND ");
                 }
 
                 let res = this.db.exec(sql, args);
@@ -65,6 +65,8 @@ export class UserModel {
                 this.db.exec(SQLInsertUser, [
                     u.Username,
                     u.Nickname,
+                    u.Email,
+                    u.Mobile,
                     u.Password,
                     u.Avatar,
                 ]);
@@ -74,7 +76,6 @@ export class UserModel {
                 await Store(this.db)
                 resolve(u);
             } catch (e) {
-                console.log(e);
                 reject(e);
             }
         });

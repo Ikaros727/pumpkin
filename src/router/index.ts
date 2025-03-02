@@ -1,4 +1,4 @@
-import {createMemoryHistory, createRouter} from "vue-router";
+import {createRouter, createWebHashHistory} from "vue-router";
 import AuthView from "@/views/auth/AuthView.vue";
 import HomeView from "@/views/home/HomeView.vue";
 import MissionView from "@/views/mission/MissionView.vue";
@@ -7,9 +7,10 @@ import MissionCreateView from "@/views/mission/MissionCreateView.vue";
 import PersonalView from "@/views/personal/PersonalView.vue";
 import SecretPage from "@/views/personal/SecretView.vue";
 import Settings from "@/views/personal/SettingsView.vue";
+import {useUserStore} from "@/stores/user.ts";
 
 const routes = [
-    {path: "/", redirect: "/auth"},
+    {path: "/", redirect: "/home"},
     {path: "/auth", component: AuthView},
     // 首页
     {path: "/home", component: HomeView},
@@ -23,7 +24,25 @@ const routes = [
     {path: "/personal/settings", component: Settings}
 ];
 
-export default createRouter({
-    history: createMemoryHistory(),
+const router = createRouter({
+    // history: createMemoryHistory(),
+    history: createWebHashHistory(),
     routes
 });
+
+router.beforeEach((to) => {
+    const authPath = "/auth";
+    const userStore = useUserStore()();
+
+    // 需要登录但未登录 → 跳转到登录页
+    if (!userStore.isAuthenticated && to.path !== authPath) {
+        return authPath;
+    }
+
+    // 已登录但访问登录页 → 跳转到首页
+    if (to.path === authPath && userStore.isAuthenticated) {
+        return '/';
+    }
+});
+
+export default router;

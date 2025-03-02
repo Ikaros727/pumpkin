@@ -1,51 +1,70 @@
 import {defineStore} from "pinia";
-import {computed, ref} from "vue";
-import {userInfo} from "node:os";
+import {ref} from "vue";
+import {User} from "@/dao/model/User.ts";
+import {UserModel} from "@/dao/User.ts";
 
-interface UserInfo {
-    id: number;
-    username: string;
-    nickname: string;
-    email?: string;
-    avatar?: string;
+// 更安全的浏览器端哈希（仍需配合后端）
+async function sha256Hash(text: string) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, "0")).join("");
 }
 
-export const useUserStore = defineStore("user", () => {
-    const token = ref<String | null>(localStorage.getItem("token"));
-    const user = ref<UserInfo | null>(null);
+export const useUserStore = (deps: { userModel: UserModel }) => {
+    return defineStore("user", () => {
+        const isInitialized = ref(false);
+        const isAuthenticated = ref(false);
+        const user = ref<User | null>(null);
 
-    const isAuthenticated = computed(() => !!token.value);
+        let userModel: UserModel = deps.userModel;
 
-    const login = async (username: string, password: string) => {
-        try {
-            return Promise.resolve();
-        } catch (e) {
-            return Promise.reject(e);
-        }
-    }
+        const register = (u: User): Promise<User> => {
+            return new Promise((resolve, reject) => {
+                sha256Hash(u.Password).then((hash) => {
+                    u.Password = hash;
+                    userModel.Create(u).then(res => {
+                        resolve(res);
+                    }).catch(e => {
+                        reject(e);
+                    });
+                }).catch(e => {
+                    reject(e);
+                })
+            });
+        };
 
-    const logout = () => {
-        token.value = null;
-        user.value = null;
-        localStorage.removeItem("token");
-    }
+        const login = (username: string, password: string): Promise<User> => {
+            return new Promise((resolve, reject) => {
+                sha256Hash(password).then((hash) => {
+                    password = hash;
+                    userModel.Get({
+                        Username: username, Password: password
+                    }).then(res => {
+                        if (res === null) {
+                            reject(new Error("账号或密码错误"));
+                            return
+                        }
+                        user.value = res;
+                        isAuthenticated.value = true;
+                        resolve(user.value);
+                    }).catch(reject);
+                }).catch(reject);
+            });
+        };
 
-    const initialize = async () => {
-        if (token.value) {
-            try {
+        const logout = () => {
+            user.value = null;
+            isAuthenticated.value = false;
+        };
 
-            } catch {
-                token.value = null;
-            }
-        }
-    }
+        const initialize = () => {
+            if (isInitialized.value) return;
+            isInitialized.value = true;
+        };
 
-    return {
-        token,
-        user,
-        isAuthenticated,
-        login,
-        logout,
-        initialize,
-    }
-});
+        return {user, isAuthenticated, register, login, logout, initialize};
+    }, {
+        persist: true
+    });
+};

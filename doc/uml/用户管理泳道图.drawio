@@ -511,12 +511,6 @@
         <mxCell id="GGlqbjtq8kUncEJ2R8Zg-1" value="用户管理&lt;div&gt;子系统&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;strokeWidth=2;fontFamily=宋体;" parent="1" vertex="1">
           <mxGeometry x="280" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="GGlqbjtq8kUncEJ2R8Zg-4" value="用户信息" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;strokeWidth=2;fontFamily=宋体;" parent="1" vertex="1">
-          <mxGeometry x="1200" y="375" width="160" height="20" as="geometry" />
-        </mxCell>
-        <mxCell id="GGlqbjtq8kUncEJ2R8Zg-5" value="车辆信息" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;strokeWidth=2;fontFamily=宋体;" parent="1" vertex="1">
-          <mxGeometry x="1560" y="375" width="160" height="20" as="geometry" />
-        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

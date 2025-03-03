@@ -2,8 +2,10 @@
   <ViewTpl title="任务中心" :has-tabbar="true">
     <van-tabs v-model:active="activeTab" swipeable>
       <van-tab v-for="t of tabs" :title="t.title">
-        <MissionList :type="t.type" :missions="t.missions" :loading="loading" :finished="finished"
-                     @detail="openMissionDetailPage" @delete="deleteMission"/>
+        <div class="swipe-container">
+          <MissionList :type="t.type" :missions="t.missions" :loading="loading" :finished="finished"
+                       @detail="openMissionDetailPage" @delete="deleteMission"/>
+        </div>
       </van-tab>
     </van-tabs>
     <!-- 新建任务按钮 -->
@@ -48,6 +50,7 @@ let missionModel: MissionModel = null;
 onMounted(() => {
   missionModel = inject("MissionModel");
   loadMissions();
+  activeTab.value = parseInt(localStorage.getItem("MissionView/activeTab") ?? "0")
 });
 
 // 监听选项卡变化
@@ -63,6 +66,7 @@ watch(activeTab, (newVal) => {
       loadPublishedMissions();
       break;
   }
+  localStorage.setItem("MissionView/activeTab", activeTab.value);
 });
 
 // 三种不同的加载方法
@@ -148,5 +152,11 @@ const openMissionCreatePage = () => {
 /* 调整图标大小 */
 :deep(.van-icon-plus) {
   font-size: 24px;
+}
+
+/* 添加滑动容器样式 */
+.swipe-container {
+  min-height: calc(100vh - 140px);  /* 确保有足够的滑动区域 */
+  touch-action: pan-y; /* 明确允许纵向滑动 */
 }
 </style>

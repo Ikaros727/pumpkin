@@ -32,6 +32,18 @@ export const SQLInsertMission =
 export const SQLDeleteMission =
     `DELETE FROM Mission WHERE Id = ?;`
 
+export const MissionClaimCreateDatabaseSQL =
+    `CREATE TABLE IF NOT EXISTS MissionClaim (
+        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        UserId INTEGER NOT NULL,
+        MissionId INTEGER NOT NULL,
+        CreateTime DATETIME DEFAULT CURRENT_TIMESTAMP,
+        UNIQUE(UserId, MissionId)
+    );`
+
+export const MissionClaimInsertSQL =
+    `INSERT INTO MissionClaim (UserId, MissionId, CreateTime) VALUES (?, ?, ?);)`
+
 export const SQLCreateDatabaseUserPaillierSecret =
     `CREATE TABLE IF NOT EXISTS UserPaillierSecret (
         Id INTEGER PRIMARY KEY AUTOINCREMENT,

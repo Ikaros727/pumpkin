@@ -6,6 +6,7 @@
           <div class="action-buttons">
             <template v-if="props.type === 'published'">
               <van-button type="danger" size="small" @click="$emit('delete', mission.Id)">删除</van-button>
+              <van-button type="primary" size="small" @click="$emit('detail', mission)">详情</van-button>
             </template>
 
             <template v-if="props.type === 'available'">
@@ -14,9 +15,8 @@
 
             <template v-if="props.type === 'claimed'">
               <van-button type="warning" size="small" @click="$emit('abandon', mission.Id)">放弃</van-button>
+              <van-button type="success" size="small" @click="openMissionSubmissionView(mission)">提交</van-button>
             </template>
-
-            <van-button type="primary" size="small" @click="$emit('detail', mission)">详情</van-button>
           </div>
         </template>
       </MissionCard>
@@ -26,9 +26,11 @@
 
 <script setup lang="ts">
 import {defineProps, defineEmits} from "vue";
+import {useRouter} from "vue-router";
 import MissionCard from "./MissionCard.vue";
 import type {Mission} from "@/dao/model/Mission.ts";
 
+const emit = defineEmits(["claim", "abandon", "delete", "detail"]);
 const props = defineProps({
   missions: {
     type: Array as () => Mission[],
@@ -42,7 +44,11 @@ const props = defineProps({
   finished: Boolean
 });
 
-const emit = defineEmits(["claim", "abandon", "delete", "detail"]);
+const router = useRouter();
+
+const openMissionSubmissionView = (m: Mission) => {
+  router.push({path: "/mission/submission", query: {mission: JSON.stringify(m)}});
+}
 </script>
 
 <style scoped>

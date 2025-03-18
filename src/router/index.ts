@@ -4,6 +4,7 @@ import HomeView from "@/views/home/HomeView.vue";
 import MissionView from "@/views/mission/MissionView.vue";
 import MissionDetail from "@/views/mission/MissionDetailView.vue";
 import MissionCreateView from "@/views/mission/MissionCreateView.vue";
+import MissionSubmissionView from "@/views/mission/MissionSubmissionView.vue";
 import PersonalView from "@/views/personal/PersonalView.vue";
 import SecretPage from "@/views/personal/SecretView.vue";
 import Settings from "@/views/personal/SettingsView.vue";
@@ -18,6 +19,7 @@ const routes = [
     {path: "/mission", component: MissionView},
     {path: "/mission/create", component: MissionCreateView},
     {path: "/mission/detail", component: MissionDetail},
+    {path: "/mission/submission", component: MissionSubmissionView},
     // 个人
     {path: "/personal", component: PersonalView},
     {path: "/personal/secret", component: SecretPage},

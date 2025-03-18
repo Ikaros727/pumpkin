@@ -4,7 +4,7 @@
       <van-tab v-for="t of tabs" :title="t.title">
         <div class="swipe-container">
           <MissionList :type="t.type" :missions="t.missions" :loading="loading" :finished="finished"
-                       @detail="openMissionDetailPage" @delete="deleteMission"/>
+                       @claim="claimMission" @detail="openMissionDetailPage" @delete="deleteMission"/>
         </div>
       </van-tab>
     </van-tabs>
@@ -30,8 +30,11 @@ import ViewTpl from "@/components/ViewTpl.vue";
 import type {MissionModel} from "@/dao/Mission.ts";
 import {Mission} from "@/dao/model/Mission.ts";
 import MissionList from "@/components/MissionList.vue";
+import type {MissionClaimModel} from "@/dao/MissionClaim.ts";
+import {useUserStore} from "@/stores/user.ts";
 
 const router = useRouter();
+const userStore = useUserStore()()
 const loading = ref<boolean>(true);
 const finished = ref<boolean>(false);
 const availableMissions = ref<Mission[]>([]);
@@ -39,18 +42,19 @@ const claimedMissions = ref<Mission[]>([]);
 const publishedMissions = ref<Mission[]>([]);
 const activeTab = ref(0);
 const tabs = ref([
-  {title: "任务列表", type: "available", missions: availableMissions},
   {title: "我领取的", type: "claimed", missions: claimedMissions},
+  {title: "任务列表", type: "available", missions: availableMissions},
   {title: "我发布的", type: "published", missions: publishedMissions}
 ]);
 
 
 let missionModel: MissionModel = null;
+let missionClaimModel: MissionClaimModel = null;
 
 onMounted(() => {
   missionModel = inject("MissionModel");
+  missionClaimModel = inject("MissionClaimModel");
   loadMissions();
-  activeTab.value = parseInt(localStorage.getItem("MissionView/activeTab") ?? "0")
 });
 
 // 监听选项卡变化
@@ -66,7 +70,6 @@ watch(activeTab, (newVal) => {
       loadPublishedMissions();
       break;
   }
-  localStorage.setItem("MissionView/activeTab", activeTab.value);
 });
 
 // 三种不同的加载方法
@@ -74,18 +77,21 @@ const loadAvailableMissions = () => {
   // missionModel.QueryAvailable()
   //     .then(result => availableMissions.value = result)
   //     .catch(handleError);
+  loadMissions();
 };
 
 const loadClaimedMissions = () => {
   // missionModel.QueryClaimed()
   //     .then(result => claimedMissions.value = result)
   //     .catch(handleError);
+  loadMissions();
 };
 
 const loadPublishedMissions = () => {
   // missionModel.QueryPublished()
   //     .then(result => publishedMissions.value = result)
   //     .catch(handleError);
+  loadMissions();
 };
 
 // 通用错误处理
@@ -99,6 +105,8 @@ const loadMissions = () => {
   missionModel.Query({UserId: 1})
       .then(result => {
         publishedMissions.value = result;
+        availableMissions.value = result;
+        claimedMissions.value = result;
       })
       .catch(e => {
         showDialog({title: "提示", message: "查询任务列表失败：" + e.message});
@@ -123,6 +131,13 @@ const deleteMission = (missionId: number) => {
   });
 
 };
+
+const claimMission = (missionId: number) => {
+  missionClaimModel.Create({
+    MissionId: missionId,
+    UserId: userStore.user.Id,
+  })
+}
 
 const openMissionDetailPage = (m: Mission) => {
   router.push({path: "/mission/detail", query: {mission: JSON.stringify(m)}});

@@ -13,6 +13,8 @@ import {UserPaillierSecretModel} from "./dao/UserPaillierSecret.ts";
 import {ConfigProvider, Dialog, Notify, SwipeCell, Row, Col} from "vant";
 import "vant/es/dialog/style";
 import {useUserStore} from "./stores/user.ts";
+import {MissionClaimModel} from "./dao/MissionClaim.ts";
+import {MissionClaim} from "./dao/model/MissionClaim.ts";
 
 initAMapApiLoader({
     key: "0a2469a1a69e21f3a6cda365dfa5e397",
@@ -32,6 +34,7 @@ Open().then(db => {
     const userModel = new UserModel(db);
     app.provide("UserModel", userModel);
     app.provide("MissionModel", new MissionModel(db));
+    app.provide("MissionClaimModel", new MissionClaimModel(db));
     app.provide("MissionCarDataModel", new MissionCarDataModel(db));
     app.provide("UserPaillierSecretModel", new UserPaillierSecretModel(db));
 

@@ -1,0 +1,29 @@
+@startuml
+title "任务发布者数据聚合"
+actor "任务发布者" as man
+participant "智能车联数据聚合平台" as ui
+participant "iov服务" as server
+database "数据库" as db
+
+activate man
+activate ui
+activate server
+activate db
+
+man -> ui: 查看任务详情
+ui -> server: 获取任务详情
+server -> db: 获取任务记录
+db -> server: 任务记录
+server -> db: 获取车辆提交数据
+db -> server: 车辆提交数据
+deactivate db
+server -> server: 聚合数据
+server -> ui: 任务信息、车辆提交数据(聚合后)
+deactivate server
+man -> ui: 开始解密
+ui -> man: 提示：请选择密钥
+man -> ui: 选择密钥
+ui -> ui: 调用paillier-bigint解析密钥
+ui -> ui: 调用paillier-bigint解密数据
+ui -> man: 解密后的数据
+@enduml

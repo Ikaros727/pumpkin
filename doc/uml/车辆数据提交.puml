@@ -1,0 +1,39 @@
+@startuml
+title "车辆数据提交"
+actor "车辆" as car
+participant "智能车联数据聚合平台" as ui
+participant "iov服务" as server
+participant "amap服务" as amap
+database "数据库" as db
+
+activate car
+activate ui
+activate server
+
+car -> ui:填写数据提交
+activate amap
+ui -> amap: 获取定位区域
+alt 定位失败
+  amap -> ui: 定位失败
+  ui -> car: 提示：定位失败请重试
+else 定位成功
+  amap -> ui: 定位信息
+  deactivate amap
+  ui -> ui: 校验任务区域
+  alt 校验失败
+    ui -> car: 提示：当前定位与任务区域不符
+  else 校验通过
+    activate db
+    ui -> server: 获取任务公钥
+    server -> db: 获取公钥
+    db -> server: 公钥
+    server -> ui: 任务公钥
+    ui -> ui: 加密数据
+    ui -> server: 提交数据
+    server -> db: 保存提交数据
+    db -> server: 保存成功
+    server -> ui: 提交成功
+    ui -> car: 提示: 提交成功
+  end
+end
+@enduml
